@@ -8,8 +8,8 @@ import { Roles } from 'src/decorators/roles/roles.decorator';
 
 
 @Controller('dashboard')
-@Roles('ADMIN', 'MANAGER')
-@UseGuards(RolesGuard)
+
+@UseGuards(AuthGuard, RolesGuard)
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 
@@ -19,7 +19,8 @@ export class DashboardController {
   }
 
   @Get()
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
+  @Roles('ADMIN', 'MANAGER')
   findAll() {
     return this.dashboardService.findAll();
   }

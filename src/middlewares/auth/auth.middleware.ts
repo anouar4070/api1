@@ -26,8 +26,10 @@ export class AuthMiddleware implements NestMiddleware {
     //   });
     // }
 
-    req['user'] = 'anouar'
-    // *4 valid token continue to the next middleware
+    req['user'] = {
+      username: 'anouar',
+      roles: ['ADMIN'],
+    };
 
     next();
   }

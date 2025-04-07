@@ -9,7 +9,7 @@ export class DashboardService {
   }
 
   findAll() {
-    return `This action returns all dashboard`;
+    return `You have access to this protected resource.`;
   }
 
   findOne(id: number) {
