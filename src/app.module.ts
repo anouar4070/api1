@@ -2,9 +2,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [DashboardModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), DashboardModule],
   controllers: [AppController],
   providers: [AppService],
 })
