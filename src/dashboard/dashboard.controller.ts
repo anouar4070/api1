@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { DashboardService } from './dashboard.service';
 import { CreateDashboardDto } from './dto/create-dashboard.dto';
 import { UpdateDashboardDto } from './dto/update-dashboard.dto';
+import { AuthGuard } from 'src/guards/auth/auth.guard';
 
 
 @Controller('dashboard')
@@ -14,7 +15,7 @@ export class DashboardController {
   }
 
   @Get()
-  //@UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   findAll() {
     return this.dashboardService.findAll();
   }

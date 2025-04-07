@@ -1,6 +1,6 @@
 import { HttpStatus, Injectable, NestMiddleware } from '@nestjs/common';
 //import jwt from 'jsonwebtoken';
-import * as jwt from "jsonwebtoken";
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -17,16 +17,16 @@ export class AuthMiddleware implements NestMiddleware {
     }
 
     // *3 verify the token
-    console.log(process.env.JWT_SECRET)
-    //"!" right after process.env.JWT_KEY actually, exclamation (!) says, hey typescript, don't worry, don't check this.
-    //const decoded = jwt.verify(token, process.env.JWT_SECRET!);
-  
+    //console.log(process.env.JWT_SECRET);
+    //// "!" right after process.env.JWT_KEY actually, exclamation (!) says, hey typescript, don't worry, don't check this.
+    // const decoded = jwt.verify(token, process.env.JWT_SECRET!);
     // if (!decoded) {
     //   return res.status(HttpStatus.UNAUTHORIZED).json({
     //     message: 'Invalid token provided',
     //   });
     // }
 
+    req['user'] = 'anouar'
     // *4 valid token continue to the next middleware
 
     next();
