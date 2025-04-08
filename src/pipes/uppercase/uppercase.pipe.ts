@@ -12,6 +12,7 @@ if(!value.title || typeof value.title !== 'string') {
   )
 }
 
-    return value.title.toUpperCase();
+    //return value.title.toUpperCase();
+    return value;
   }
 }
